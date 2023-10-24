@@ -1,4 +1,4 @@
-<table id="summaryTable" class="bordered <%= options[:color] %> lighten-1 white-text" width="100%">
+<table id="summaryTable" class="bordered <%= options.color %> lighten-1 white-text" width="100%">
   <thead>
   <tr>
     <th class="hide-on-small-only">Feature</th>
@@ -7,7 +7,7 @@
     <th>Status</th>
 
 
-    <% if options[:tag_filter] %>
+    <% if options.tag_filter %>
         <th class="hide-on-small-only">Filtered Tags</th>
     <% end %>
 
@@ -16,10 +16,10 @@
   </thead>
   <tbody>
   <% features.each_with_index do |feature, f| %>
-      <% feature['elements'].each_with_index do |scenario, s| %>
+      <% feature.elements.each_with_index do |scenario, s| %>
           <% sid = "#{gid}f#{f}s#{s}" %>
-          <tr class="<%= scenario['status'] %>">
-            <%= get('summary_row').result(binding) %>
+          <tr class="<%= scenario.status %>">
+            <%= template('summary_row').result(binding) %>
           </tr>
       <% end %>
   <% end %>

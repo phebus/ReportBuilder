@@ -1,35 +1,35 @@
 <td class="hide-on-small-only">
-  <%= feature['name'] %>
+  <%= feature.name %>
 </td>
 
 <td class="hoverable modal-trigger white-text" data-target="<%= sid %>">
-  <%= scenario['name'] %>
+  <%= scenario.name %>
 </td>
 
 <td class="hide">
-  <% if scenario['tags'] %>
-      <% scenario['tags'].each do |tag| %>
-          <%= tag['name'] + '. ' %>
+  <% if scenario.tags %>
+      <% scenario.tags.each do |tag| %>
+          <%= tag.name + '. ' %>
       <% end %>
   <% end %>
 </td>
 
 <td class="uppercase">
-  <%= scenario['status'] %>
+  <%= scenario.status %>
 </td>
 
-<% if options[:tag_filter] %>
+<% if options.tag_filter %>
     <td class="hide-on-small-only">
-      <% scenario['tags'].each do |tag| %>
-          <% if tag['name'].match(/#{options[:tag_filter]}/) %>
-              <%= tag['name'] %>
+      <% scenario.tags.each do |tag| %>
+          <% if tag.name.match(/#{options[:tag_filter]}/) %>
+              <%= tag.name %>
           <% end %>
       <% end %>
     </td>
 <% end %>
 
 <td class="hide-on-small-only">
-  <% if scenario['error'] %>
-      <%= scenario['error'] %>
+  <% if scenario.error %>
+      <%= scenario.error %>
   <% end %>
 </td>

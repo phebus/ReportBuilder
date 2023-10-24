@@ -1,6 +1,6 @@
 <ul class="featureList collapsible popout" data-collapsible="expandable">
   <% features.each_with_index do |feature, f| %>
       <% fid = "#{gid}f#{f}" %>
-      <%= get('feature').result(binding) %>
+      <%= template('feature').result(binding) %>
   <% end %>
 </ul>

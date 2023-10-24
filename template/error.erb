@@ -3,14 +3,14 @@
     <i class="material-icons">bug_report</i><%= error %>
   </div>
 
-  <div class="collapsible-body <%= options[:color] %> lighten-4">
+  <div class="collapsible-body <%= options.color %> lighten-4">
     <div class="collection failedScenarioList">
       <% features.each_with_index do |feature, f| %>
-          <% feature['elements'].each_with_index do |scenario, s| %>
-              <% if scenario['error'] %>
-                  <% if scenario['error'] == error %>
-                      <a class="collection-item failedScenario <%= options[:color] %> lighten-5 red-text modal-trigger waves-effect waves-light" href="#<%= "#{gid}f#{f}s#{s}" %>">
-                        <i class="material-icons">highlight_off</i>&nbsp;<%= scenario['name'] %>
+          <% feature.elements.each_with_index do |scenario, s| %>
+              <% if scenario.error %>
+                  <% if scenario.error == error %>
+                      <a class="collection-item failedScenario <%= options.color %> lighten-5 red-text modal-trigger waves-effect waves-light" href="#<%= "#{gid}f#{f}s#{s}" %>">
+                        <i class="material-icons">highlight_off</i>&nbsp;<%= scenario.name %>
                       </a>
                   <% end %>
               <% end %>

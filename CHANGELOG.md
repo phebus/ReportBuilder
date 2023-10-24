@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://github.com/rajatthareja/ReportBuilder/compare/v1.9...master)
 
+## [1.9.1](https://github.com/phebus/ReportBuilder/compare/v1.9..v1.9.1) - 2023-10-19
+### Changed
+- Refactor to pull out concerns for Features, Groups, and the Inputs
+- Simplify/Condense code and cleanup Rubocop alerts
+- No change to general functionality
+
 ## [1.9](https://github.com/rajatthareja/ReportBuilder/compare/v1.8...v1.9) - 2020-06-06
 ### Changed
 - Json 1.8.1 to 2.3.0

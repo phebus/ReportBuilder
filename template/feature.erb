@@ -1,14 +1,14 @@
-<li class="feature <%= feature['status'] %>">
-  <div class="collapsible-header <%= options[:color] %> lighten-1 waves-effect waves-light">
+<li class="feature <%= feature.status %>">
+  <div class="collapsible-header <%= options.color %> lighten-1 waves-effect waves-light">
     <i class="material-icons">featured_play_list</i>
-    <b><%= feature['keyword'] %></b>&nbsp;<%= feature['name'] %>&nbsp;(<%= duration(feature['duration']) %>)
+    <b><%= feature.keyword %></b>&nbsp;<%= feature.name %>&nbsp;(<%= duration(feature.duration) %>)
   </div>
 
-  <div class="collapsible-body <%= options[:color] %> lighten-4">
-    <div class="collection scenarioList <%= options[:color] %>">
-      <% feature['elements'].each_with_index do |scenario, s| %>
-        <a class="collection-item scenario modal-trigger waves-effect waves-light white-text <%= scenario['status'] %>" href="#<%= "#{fid}s#{s}" %>">
-          <b><%= scenario['keyword'] %></b> <%= scenario['name'] %>&nbsp;(<%= duration(scenario['duration']) %>)
+  <div class="collapsible-body <%= options.color %> lighten-4">
+    <div class="collection scenarioList <%= options.color %>">
+      <% feature.elements.each_with_index do |scenario, s| %>
+        <a class="collection-item scenario modal-trigger waves-effect waves-light white-text <%= scenario.status %>" href="#<%= "#{fid}s#{s}" %>">
+          <b><%= scenario.keyword %></b> <%= scenario.name %>&nbsp;(<%= duration(scenario.duration) %>)
         </a>
       <% end %>
     </div>

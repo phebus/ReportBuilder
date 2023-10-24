@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <%= get('head').result(binding) %>
+  <%= template('head').result(binding) %>
   <body>
-    <%= get('header').result(binding) %>
+    <%= template('header').result(binding) %>
 
     <% errors = [] %>
 
     <% gid = 'g0' %>
-    <% features = groups.first['features'] %>
+    <% features = groups.first.features %>
 
-    <%= get('scenarios').result(binding) %>
+    <%= template('scenarios').result(binding) %>
 
-    <main class="<%= options[:color] %> lighten-5">
+    <main class="<%= options.color %> lighten-5">
       <div class="row">
 
-        <div id="overview" class="col s12 <%= options[:color] %> lighten-5">
-          <%= get('overview').result(binding) %>
+        <div id="overview" class="col s12 <%= options.color %> lighten-5">
+          <%= template('overview').result(binding) %>
         </div>
 
-        <div id="features" class="col s12 <%= options[:color] %> lighten-5 white-text">
-          <%= get('features').result(binding) %>
+        <div id="features" class="col s12 <%= options.color %> lighten-5 white-text">
+          <%= template('features').result(binding) %>
         </div>
 
-        <div id="summary" class="col s12 <%= options[:color] %> lighten-5">
-          <%= get('summary').result(binding) %>
+        <div id="summary" class="col s12 <%= options.color %> lighten-5">
+          <%= template('summary').result(binding) %>
         </div>
 
-        <div id="errors" class="col s12 <%= options[:color] %> lighten-5">
-          <%= get('errors').result(binding) %>
+        <div id="errors" class="col s12 <%= options.color %> lighten-5">
+          <%= template('errors').result(binding) %>
         </div>
       </div>
     </main>
 
-    <%= get('footer').result(binding) %>
+    <%= template('footer').result(binding) %>
   </body>
 </html>

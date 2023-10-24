@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
-require 'report_builder'
+require_relative '../lib/report_builder'
 
-options = { }
+options = {}
 
 opt_parser = OptionParser.new do |opts|
   opts.banner = "Usage: \n     report_builder [options]"
@@ -50,9 +50,10 @@ opt_parser = OptionParser.new do |opts|
   end
 
   opts.on('-I', '--info a:x,b:y,c:z', Array, 'List of additional info') do |list|
-    options[:additional_info] = { }
+    options[:additional_info] = {}
+
     list.each do |i|
-      key, value = i.split(':', 2)
+      key, value                     = i.split(':', 2)
       options[:additional_info][key] = value
     end
   end
@@ -73,7 +74,12 @@ opt_parser = OptionParser.new do |opts|
   end
 
   opts.on_tail('-v', '--version', 'Show version') do
-    puts 'ReportBuilder v' + Gem.loaded_specs['report_builder'].version.to_s rescue puts "Something want wrong. \nUse 'gem list report_builder'"
+    begin
+      puts 'ReportBuilder v' + Gem.loaded_specs['report_builder'].version.to_s
+    rescue
+      puts "Something went wrong. \nUse 'gem list report_builder'"
+    end
+
     exit
   end
 end

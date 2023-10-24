@@ -4,20 +4,19 @@ require_relative 'report_builder/builder'
 # ReportBuilder Main module
 #
 module ReportBuilder
-
   ##
   # ReportBuilder options
   #
   def self.options
     @options ||= {
-      input_path: Dir.pwd,
-      report_types: [:html],
-      report_title: 'Test Results',
-      include_images: true,
-      voice_commands: false,
+      input_path:      Dir.pwd,
+      report_types:    [:html],
+      report_title:    'Test Results',
+      include_images:  true,
+      voice_commands:  false,
       additional_info: {},
-      report_path: 'test_report',
-      color: 'brown'
+      report_path:     'test_report',
+      color:           'brown'
     }
   end
 
@@ -40,7 +39,7 @@ module ReportBuilder
     options
     more_options = OpenStruct.new
     yield more_options if block_given?
-    @options.merge! more_options.marshal_dump
+    OpenStruct.new(@options.merge!(more_options.marshal_dump))
   end
 
   ##
@@ -65,14 +64,19 @@ module ReportBuilder
   #
   def self.build_report(more_options = {})
     options
-    if more_options.is_a? String
+
+    case more_options
+    when String
       @options[:input_path] = more_options
-    elsif more_options.is_a? Hash
+    when Hash
       @options.merge! more_options
+    else
+      raise "Invalid option format #{more_options}"
     end
-    @options[:input_path] = @options[:json_path] if @options[:json_path]
-    @options[:report_types] = [@options[:report_types]] unless @options[:report_types].is_a? Array
-    @options[:report_types].map!(&:to_s).map!(&:upcase)
+
+    @options[:input_path]   = @options[:json_path] if @options[:json_path]
+    @options[:report_types] = [@options[:report_types]].flatten.map!(&:to_sym)
+
     Builder.new.build_report
   end
 
@@ -133,7 +137,7 @@ module ReportBuilder
   #
   def self.report_types=(report_types)
     options
-    @options[:report_types] = report_types.is_a? Array ? report_types : [report_types]
+    @options[:report_types] = [report_types].flatten
   end
 
   ##
@@ -363,7 +367,7 @@ module ReportBuilder
   #
   def self.additional_js=(additional_js)
     options
-    @options[:additional_js=] = additional_js if additional_js.is_a? String
+    @options[:additional_js] = additional_js if additional_js.is_a? String
   end
 
   ##

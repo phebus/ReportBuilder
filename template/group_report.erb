@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
-<%= get('head').result(binding) %>
+<%= template('head').result(binding) %>
 <body>
-<%= get('header').result(binding) %>
+<%= template('header').result(binding) %>
 
 <% errors = [] %>
 
 <% groups.each_with_index do |group, g| %>
   <% gid = "g#{g}" %>
-  <% features = group['features'] %>
-  <%= get('scenarios').result(binding) %>
+  <% features = group.features %>
+  <%= template('scenarios').result(binding) %>
 <% end %>
 
-<main class="<%= options[:color] %> lighten-5">
+<main class="<%= options.color %> lighten-5">
   <div class="row">
-    <div id="overview" class="col s12 <%= options[:color] %> lighten-5">
-      <%= get('group_overview').result(binding) %>
+    <div id="overview" class="col s12 <%= options.color %> lighten-5">
+      <%= template('group_overview').result(binding) %>
     </div>
 
-    <div id="features" class="col s12 <%= options[:color] %> lighten-5 white-text">
-      <%= get('group_features').result(binding) %>
+    <div id="features" class="col s12 <%= options.color %> lighten-5 white-text">
+      <%= template('group_features').result(binding) %>
     </div>
 
-    <div id="summary" class="col s12 <%= options[:color] %> lighten-5">
-      <%= get('group_summary').result(binding) %>
+    <div id="summary" class="col s12 <%= options.color %> lighten-5">
+      <%= template('group_summary').result(binding) %>
     </div>
 
-    <div id="errors" class="col s12 <%= options[:color] %> lighten-5">
-      <%= get('group_errors').result(binding) %>
+    <div id="errors" class="col s12 <%= options.color %> lighten-5">
+      <%= template('group_errors').result(binding) %>
     </div>
   </div>
 </main>
 
 <script type="text/javascript" src="https://cdn.rawgit.com/rajatthareja/ReportBuilder/v1.4/js/group.report.builder.min.js"></script>
 
-<%= get('footer').result(binding) %>
+<%= template('footer').result(binding) %>
 </body>
 </html>
