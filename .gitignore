@@ -1,6 +1,8 @@
 pkg/
 .idea/
 .DS_Store
-Gemfile.lock
 doc/
 .yardoc/
+.rubocop.yml
+rspec.xml
+coverage/

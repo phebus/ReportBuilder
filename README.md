@@ -1,10 +1,4 @@
 # ReportBuilder
-
-[![Gem Version](https://img.shields.io/gem/v/report_builder.svg)](https://badge.fury.io/rb/report_builder) 
-[![Build status](https://travis-ci.org/rajatthareja/ReportBuilder.svg?branch=master)](https://travis-ci.org/rajatthareja/ReportBuilder)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/s5jx2ji3wdg294u6/branch/master?svg=true)](https://ci.appveyor.com/project/rajatthareja/reportbuilder)
-[![Join the chat at https://gitter.im/rajatthareja/ReportBuilder](https://badges.gitter.im/rajatthareja/ReportBuilder.svg)](https://gitter.im/rajatthareja/ReportBuilder?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Ruby gem to merge Cucumber JSON reports and build mobile-friendly HTML Test Report, JSON report and retry file.
 
 ## Sample Reports
@@ -20,12 +14,6 @@ Ruby gem to merge Cucumber JSON reports and build mobile-friendly HTML Test Repo
 gem install report_builder
 
 ```
-
-## Information
-
-* RDoc documentation [available on RubyDoc.info](http://www.rubydoc.info/gems/report_builder)
-* Source code [available on GitHub](https://github.com/rajatthareja/ReportBuilder)
-
 ## Usage
 
 **Note:** Works with cucumber(>= 2.1.0) test results in JSON format.
@@ -52,7 +40,7 @@ gem install report_builder
 
 ```ruby
 
-     require 'report_builder'
+    require 'report_builder'
     
     # Ex 1:
     ReportBuilder.configure do |config|
@@ -78,7 +66,7 @@ gem install report_builder
     options = {
        input_path: 'results/cucumber_json',
        report_path: 'my_test_report',
-       report_types: ['retry', 'html'],
+       report_types: [:retry, :html],
        report_title: 'My Test Results',
        additional_info: {'Browser' => 'Chrome', 'Environment' => 'Stage 5'}
      }
@@ -167,14 +155,3 @@ end
 Use voice commands for easy navigation and search
 * show ( overview, features, summary, errors )
 * search { Keywords }
-
-## Report Builder Java API
-[Report Builder Java](https://reportbuilderjava.rajatthareja.com)
-
-## Contributing
-
-We're open to any contribution. It has to be tested properly though.
-
-## License
-
-Copyright (c) 2017 [MIT LICENSE](LICENSE)

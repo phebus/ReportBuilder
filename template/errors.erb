@@ -1,5 +1,5 @@
 <ul class="errorList collapsible popout" data-collapsible="expandable">
   <% errors.uniq.each do |error| %>
-      <%= get('error').result(binding) %>
+      <%= template('error').result(binding) %>
   <% end %>
 </ul>

@@ -2,16 +2,16 @@
   <% groups.each_with_index do |group, g| %>
 
       <% gid = "g#{g}" %>
-      <% features = group['features'] %>
+      <% features = group.features %>
       <li class="group">
 
-        <div class="collapsible-header <%= options[:color] %> lighten-1 waves-effect waves-light">
+        <div class="collapsible-header <%= options.color %> lighten-1 waves-effect waves-light">
           <i class="material-icons">group_work</i>
-          <b><%= group['name'] %></b>&nbsp;(<%= duration(total_time(features)) %>)
+          <b><%= group.name %></b>&nbsp;(<%= duration(total_time(features)) %>)
         </div>
 
-        <div class="collapsible-body <%= options[:color] %> lighten-4">
-          <%= get('features').result(binding) %>
+        <div class="collapsible-body <%= options.color %> lighten-4">
+          <%= template('features').result(binding) %>
         </div>
       </li>
   <% end %>

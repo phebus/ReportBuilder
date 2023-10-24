@@ -1,0 +1,5 @@
+--color
+--require spec_helper
+--format progress
+--format RspecJunitFormatter
+-o spec/rspec.xml
